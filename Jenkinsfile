@@ -2,7 +2,7 @@ pipeline:
   agent: any
 
   environment:
-    WEBHOOK_TOKEN: ${JENKINS_CREDENTIALS_WEBHOOK_SECRET_TOKEN} # Securely fetching token
+    WEBHOOK_TOKEN: ${JENKINS_CREDENTIALS_WEBHOOK_SECRET_TOKEN}
 
   triggers:
     - genericTrigger:
