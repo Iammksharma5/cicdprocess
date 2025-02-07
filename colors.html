@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body {
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            border-radius: 5px;
+        }
+        .green { background-color: green; }
+        .blue { background-color: blue; }
+        .orange { background-color: orange; }
+        .violet { background-color: violet; }
+        .rainbow { background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); }
+    </style>
+</head>
+<body>
+    <h1>Click a Button to Change Background Color</h1>
+    <button class="btn green" onclick="changeColor('green')">Green</button>
+    <button class="btn blue" onclick="changeColor('blue')">Blue</button>
+    <button class="btn orange" onclick="changeColor('orange')">Orange</button>
+    <button class="btn violet" onclick="changeColor('violet')">Violet</button>
+    <button class="btn rainbow" onclick="changeColor('rainbow')">VIBGYOR</button>
+
+    <script>
+        function changeColor(color) {
+            if (color === 'rainbow') {
+                document.body.style.background = 'linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet)';
+            } else {
+                document.body.style.background = color;
+            }
+        }
+    </script>
+</body>
+</html>
