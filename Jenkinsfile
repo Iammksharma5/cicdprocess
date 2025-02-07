@@ -2,13 +2,21 @@ pipeline {
     agent any
 
     triggers {
-        githubPush() // This enables GitHub webhook trigger
+        script {
+            def webhookToken = credentials('WEBHOOK_SECRET_TOKEN')
+            genericTrigger(
+                causeString: 'Triggered by GitHub Webhook',
+                token: webhookToken, // Securely using the stored token
+                printContributedVariables: true,
+                printPostContent: true
+            )
+        }
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Iammksharma5/cicdprocess.git'
+                git branch: 'main', url: 'https://github.com/Iammksharma5/cicdprocess.git''
             }
         }
 
@@ -36,4 +44,3 @@ pipeline {
         }
     }
 }
-
