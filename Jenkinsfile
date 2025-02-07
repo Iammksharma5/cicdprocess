@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        // Using GitHub Webhook trigger instead of genericTrigger
-        githubPush()
-    }
-
-    environment {
-        WEBHOOK_TOKEN = credentials('WEBHOOK_SECRET_TOKEN') // Securely fetching token
+        githubPush() // This enables GitHub webhook trigger
     }
 
     stages {
@@ -41,3 +36,4 @@ pipeline {
         }
     }
 }
+
