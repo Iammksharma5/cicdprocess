@@ -7,7 +7,7 @@ pipeline:
   triggers:
     - genericTrigger:
         causeString: "Triggered by GitHub Webhook"
-        token: "${WEBHOOK_TOKEN}"  # Using environment variable for security
+        token: "${WEBHOOK_TOKEN}"
         printContributedVariables: true
         printPostContent: true
 
