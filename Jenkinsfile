@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     triggers {
-        genericTrigger(
-            causeString: 'Triggered by GitHub Webhook',
-            token: credentials('WEBHOOK_SECRET_TOKEN'), // Securely using the stored token
-            printContributedVariables: true,
-            printPostContent: true
-        )
+        // Using GitHub Webhook trigger instead of genericTrigger
+        githubPush()
+    }
+
+    environment {
+        WEBHOOK_TOKEN = credentials('WEBHOOK_SECRET_TOKEN') // Securely fetching token
     }
 
     stages {
